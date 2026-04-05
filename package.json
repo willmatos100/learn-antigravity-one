@@ -1,0 +1,19 @@
+{
+  "name": "willmatos-awwwards-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5174",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.20",
+    "three": "^0.174.0"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}

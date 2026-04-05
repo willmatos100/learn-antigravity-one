@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>William Matos | Staff Product Designer</title>
+    <!-- Premium Neutral Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter Tight:wght@300;400;500;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- WebGL Canvas Fixed in Background -->
+    <div id="canvas-container"></div>
+    
+    <!-- Smooth Scroll Wrapper -->
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        
+        <!-- Navigation -->
+        <nav class="navbar">
+          <div class="nav-brand">WM / 26</div>
+          <div class="nav-role">Staff Product Designer. DesignOps. Accessibility</div>
+        </nav>
+
+        <!-- Hero -->
+        <section class="hero" id="home">
+          <div class="hero-grid">
+            <div class="hero-title">
+              <h1 class="fade-up">Less,</h1>
+              <h1 class="fade-up">but better.</h1>
+              <p class="hero-sub fade-up">Swiss functionality meets magical interaction. Connecting human needs with business logic globally.</p>
+            </div>
+            
+            <div class="hero-profile">
+              <div class="img-wrapper">
+                <!-- This image will be parsed by WebGL and made transparent by CSS -->
+                <img src="/profile.jpg" alt="Profile" class="webgl-img" crossorigin="anonymous">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Timeline: Experiences -->
+        <section class="experience" id="experience">
+          <div class="section-grid">
+            <h2 class="section-title fade-up">01. Experience</h2>
+            <div class="timeline-container">
+              
+              <div class="timeline-item fade-up">
+                <div class="time-meta">
+                  <span class="dates">Dez 2023 — Presente</span>
+                  <h3 class="company">SulAmérica</h3>
+                </div>
+                <div class="time-content">
+                  <h4>Staff Product Designer & DesignOps</h4>
+                  <p>Inovação, governança de design, gestão da experiência e escalabilidade de processos para serviços digitais massivos. Atuando diretamente no core estratégico de produtos de saúde e seguros.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item fade-up">
+                <div class="time-meta">
+                  <span class="dates">Jan 2022 — Jun 2023</span>
+                  <h3 class="company">PicPay</h3>
+                </div>
+                <div class="time-content">
+                  <h4>DesignOps & Design Manager</h4>
+                  <p>Gestão de Design Center: Produto e Pessoas. Coordenação com foco em Design System e AccessibilityOps. Fomento da cultura em parceria colaborativa com Content Design e UX Research para potencializar as jornadas do marketplace financeiro.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Gallery: Pinterest Cases -->
+        <section class="gallery" id="work">
+          <div class="section-grid">
+            <h2 class="section-title fade-up">02. Selected Work</h2>
+          </div>
+          <div class="gallery-grid">
+            
+            <div class="gallery-item fade-up">
+              <div class="img-wrapper landscape">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" alt="Data Dashboard" class="webgl-img" crossorigin="anonymous">
+              </div>
+              <div class="gallery-info">
+                <h3>Scalable Data Visualization</h3>
+                <span>Dark Mode Dashboards / UI Components</span>
+              </div>
+            </div>
+
+            <div class="gallery-item fade-up offset-right">
+              <div class="img-wrapper portrait">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" alt="Fintech UX" class="webgl-img" crossorigin="anonymous">
+              </div>
+              <div class="gallery-info">
+                <h3>Banking App Environments</h3>
+                <span>Fintech UX / Interactions</span>
+              </div>
+            </div>
+
+            <div class="gallery-item fade-up offset-left">
+              <div class="img-wrapper square">
+                <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&q=80&w=1000" alt="Design System" class="webgl-img" crossorigin="anonymous">
+              </div>
+              <div class="gallery-info">
+                <h3>Core Design System Factory</h3>
+                <span>DesignOps / Accessibility</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-wrap">
+            <h2 class="fade-up">Will.</h2>
+            <div class="footer-bottom">
+              <span>Staff Product Designer. São Paulo, BR</span>
+              <a href="https://br.pinterest.com/willmatos/portfolio/" target="_blank">Pinterest Archive</a>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+    
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
