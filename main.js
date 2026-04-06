@@ -290,6 +290,56 @@ if(canvas) {
 /* ==============================================================
    7. NEURAL INTERFACE (Holographic Head + Chat)
 ============================================================== */
+
+// LIME BG: Fade in when entering hard-skills
+gsap.fromTo('#lime-bg-layer', 
+  { opacity: 0 },
+  {
+    opacity: 1,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#hard-skills',
+      start: 'top bottom',
+      end: 'top 20%',
+      scrub: true
+    }
+  }
+);
+
+// LIME BG: Fade out when leaving soft-skills
+gsap.fromTo('#lime-bg-layer', 
+  { opacity: 1 },
+  {
+    opacity: 0,
+    immediateRender: false,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#soft-skills',
+      start: 'bottom 80%',
+      end: 'bottom top',
+      scrub: true
+    }
+  }
+);
+
+// Stagger-reveal skill tags
+gsap.utils.toArray('.tag-cloud, .course-grid').forEach(cloud => {
+  const tags = cloud.querySelectorAll('.skill-tag, .course-tag');
+  gsap.fromTo(tags,
+    { opacity: 0, y: 20, scale: 0.85 },
+    {
+      opacity: 1, y: 0, scale: 1,
+      duration: 0.5,
+      stagger: 0.04,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: cloud,
+        start: 'top 80%'
+      }
+    }
+  );
+});
+
 initHolographicHead();
 initNeuralChat();
 
