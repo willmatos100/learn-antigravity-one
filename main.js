@@ -127,29 +127,44 @@ gsap.utils.toArray('.fade-up-item').forEach(element => {
 /* ==============================================================
    4. SCROLL VIDEO SCRUB & FADE (Chrome Fix via Blob)
 ============================================================== */
-const scrubVideo = document.getElementById('hero-video');
-if (scrubVideo) {
-  fetch(scrubVideo.getAttribute('src'))
+// Helper to safely apply GSAP scrub to video blobs
+function applyVideoScrub(videoEl, triggerOptions, fallbackDuration = 10) {
+  if (!videoEl) return;
+  fetch(videoEl.getAttribute('src'))
     .then(r => r.blob())
     .then(blob => {
-      scrubVideo.src = URL.createObjectURL(blob);
-      scrubVideo.load();
-      scrubVideo.addEventListener('loadedmetadata', function() {
-        gsap.to(scrubVideo, {
-          currentTime: scrubVideo.duration || 10,
+      const bloblUrl = URL.createObjectURL(blob);
+      
+      const setupGsap = () => {
+        if (videoEl.dataset.scrubSetup) return;
+        videoEl.dataset.scrubSetup = 'true';
+        gsap.to(videoEl, {
+          currentTime: videoEl.duration || fallbackDuration,
           ease: "none",
-          scrollTrigger: {
-            trigger: ".mega-hero",
-            start: "top top",
-            endTrigger: "#testimonial",
-            end: "bottom top", 
-            scrub: 1
-          }
+          scrollTrigger: triggerOptions
         });
-      });
+      };
+
+      videoEl.addEventListener('loadedmetadata', setupGsap);
+      videoEl.src = bloblUrl;
+      videoEl.pause();
+      
+      // Fallback if readyState is already METADATA or higher
+      if (videoEl.readyState >= 1) {
+        setupGsap();
+      }
     })
-    .catch(err => console.error("Hero Blob fetch failed:", err));
+    .catch(err => console.error("Video Blob fetch failed:", err));
 }
+
+const scrubVideo = document.getElementById('hero-video');
+applyVideoScrub(scrubVideo, {
+  trigger: ".mega-hero",
+  start: "top top",
+  endTrigger: "#testimonial",
+  end: "bottom top", 
+  scrub: 1
+}, 10);
 
 // Fade out fixed video smoothly over the Testimonial text
 gsap.to('#hero-media-fixed', {
@@ -158,7 +173,7 @@ gsap.to('#hero-media-fixed', {
   scrollTrigger: {
     trigger: "#testimonial",
     start: "top 70%", // Start fading when Testimonial is 70% from top
-    end: "bottom top", // Full fadeout when Testimonial leaves top
+    end: "bottom top", 
     scrub: true
   }
 });
@@ -298,29 +313,14 @@ if(canvas) {
 ============================================================== */
 /* ==============================================================
    6.8 STELLAR NAVIGATION SCRUB (Chrome Fix via Blob)
-============================================================== */
+============================================================= */
 const stellarVideo = document.getElementById('stellar-video');
-if (stellarVideo) {
-  fetch(stellarVideo.getAttribute('src'))
-    .then(r => r.blob())
-    .then(blob => {
-      stellarVideo.src = URL.createObjectURL(blob);
-      stellarVideo.load();
-      stellarVideo.addEventListener('loadedmetadata', () => {
-        gsap.to(stellarVideo, {
-          currentTime: stellarVideo.duration || 8,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '#stellar-nav',
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 1.5
-          }
-        });
-      });
-    })
-    .catch(err => console.error("Stellar Blob fetch failed:", err));
-}
+applyVideoScrub(stellarVideo, {
+  trigger: '#stellar-nav',
+  start: 'top top',
+  end: 'bottom bottom',
+  scrub: 1.5
+}, 8);
 
 // LIME BG: Fade in when entering hard-skills
 gsap.fromTo('#lime-bg-layer', 
