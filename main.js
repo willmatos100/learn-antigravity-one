@@ -322,20 +322,26 @@ applyVideoScrub(stellarVideo, {
   scrub: 1.5
 }, 8);
 
-// LIME BG: Fade in when entering hard-skills
-gsap.fromTo('#lime-bg-layer', 
-  { opacity: 0 },
-  {
-    opacity: 1,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '#hard-skills',
-      start: 'top bottom',
-      end: 'top 20%',
-      scrub: true
-    }
+// LIME BG: Glitch enter when scrolling into hard-skills
+const limeInTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#hard-skills',
+    start: 'top bottom',
+    end: 'top 15%',
+    scrub: true
   }
-);
+});
+
+// Configure initial hidden state
+gsap.set('#lime-bg-layer', { opacity: 0, clipPath: 'inset(100% 0 0 0)' });
+
+limeInTl
+  .to('#lime-bg-layer', { opacity: 0.4, clipPath: 'inset(70% 0 10% 0)', duration: 0.1, ease: 'steps(1)' })
+  .to('#lime-bg-layer', { opacity: 0,   clipPath: 'inset(90% 0 0% 0)',  duration: 0.05, ease: 'steps(1)' })
+  .to('#lime-bg-layer', { opacity: 0.8, clipPath: 'inset(30% 0 40% 0)', duration: 0.1, ease: 'steps(1)' })
+  .to('#lime-bg-layer', { opacity: 0.2, clipPath: 'inset(50% 0 20% 0)', duration: 0.1, ease: 'steps(1)' })
+  .to('#lime-bg-layer', { opacity: 1,   clipPath: 'inset(10% 0 0% 0)',  duration: 0.1, ease: 'steps(1)' })
+  .to('#lime-bg-layer', { clipPath: 'inset(0% 0 0% 0)', duration: 0.55, ease: 'power2.out' });
 
 // LIME BG: Fade out when leaving soft-skills
 gsap.fromTo('#lime-bg-layer', 
