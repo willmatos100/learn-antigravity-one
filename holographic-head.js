@@ -31,7 +31,7 @@ export function initHolographicHead() {
   const headGroup = new THREE.Group()
   scene.add(headGroup)
 
-  fetch('/will_head.obj')
+  fetch(`${import.meta.env.BASE_URL}will_head.obj`)
     .then(r => r.text())
     .then(text => {
       const raw = []
