@@ -321,6 +321,47 @@ body.light-mode .media-overlay {
 }
 
 /* ==============================
+   6.8 STELLAR NAVIGATION
+=============================== */
+.stellar-nav-wrapper {
+  height: 500vh; /* Long scroll runway for the flight */
+  position: relative;
+}
+.stellar-viewport {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #030303;
+}
+#stellar-video {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+.stellar-hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+.stellar-hud-tl {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: rgba(204, 255, 0, 0.4);
+}
+.stellar-hud-br {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  color: rgba(204, 255, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+/* ==============================
    7. KINETIC MARQUEE 
 =============================== */
 .marquee-container {

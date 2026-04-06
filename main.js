@@ -125,24 +125,30 @@ gsap.utils.toArray('.fade-up-item').forEach(element => {
 });
 
 /* ==============================================================
-   4. SCROLL VIDEO SCRUB & FADE
+   4. SCROLL VIDEO SCRUB & FADE (Chrome Fix via Blob)
 ============================================================== */
 const scrubVideo = document.getElementById('hero-video');
 if (scrubVideo) {
-  scrubVideo.addEventListener('loadedmetadata', function() {
-    gsap.to(scrubVideo, {
-      currentTime: scrubVideo.duration || 10,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".mega-hero",
-        start: "top top",
-        endTrigger: "#testimonial",
-        end: "bottom top", // Scrubs exactly until the testimonial ends passing over it
-        scrub: 1
-      }
-    });
-  });
-  scrubVideo.load();
+  fetch(scrubVideo.getAttribute('src'))
+    .then(r => r.blob())
+    .then(blob => {
+      scrubVideo.src = URL.createObjectURL(blob);
+      scrubVideo.load();
+      scrubVideo.addEventListener('loadedmetadata', function() {
+        gsap.to(scrubVideo, {
+          currentTime: scrubVideo.duration || 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".mega-hero",
+            start: "top top",
+            endTrigger: "#testimonial",
+            end: "bottom top", 
+            scrub: 1
+          }
+        });
+      });
+    })
+    .catch(err => console.error("Hero Blob fetch failed:", err));
 }
 
 // Fade out fixed video smoothly over the Testimonial text
@@ -290,6 +296,31 @@ if(canvas) {
 /* ==============================================================
    7. NEURAL INTERFACE (Holographic Head + Chat)
 ============================================================== */
+/* ==============================================================
+   6.8 STELLAR NAVIGATION SCRUB (Chrome Fix via Blob)
+============================================================== */
+const stellarVideo = document.getElementById('stellar-video');
+if (stellarVideo) {
+  fetch(stellarVideo.getAttribute('src'))
+    .then(r => r.blob())
+    .then(blob => {
+      stellarVideo.src = URL.createObjectURL(blob);
+      stellarVideo.load();
+      stellarVideo.addEventListener('loadedmetadata', () => {
+        gsap.to(stellarVideo, {
+          currentTime: stellarVideo.duration || 8,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#stellar-nav',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1.5
+          }
+        });
+      });
+    })
+    .catch(err => console.error("Stellar Blob fetch failed:", err));
+}
 
 // LIME BG: Fade in when entering hard-skills
 gsap.fromTo('#lime-bg-layer', 
