@@ -1,133 +1,267 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>William Matos | Staff Product Designer</title>
-    <!-- Premium Neutral Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter Tight:wght@300;400;500;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <!-- WebGL Canvas Fixed in Background -->
-    <div id="canvas-container"></div>
-    
-    <!-- Smooth Scroll Wrapper -->
-    <div id="smooth-wrapper">
-      <div id="smooth-content">
-        
-        <!-- Navigation -->
-        <nav class="navbar">
-          <div class="nav-brand">WM / 26</div>
-          <div class="nav-role">Staff Product Designer. DesignOps. Accessibility</div>
-        </nav>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Matos | High-End Product Designer</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="awwwards-run">
 
-        <!-- Hero -->
-        <section class="hero" id="home">
-          <div class="hero-grid">
-            <div class="hero-title">
-              <h1 class="fade-up">Less,</h1>
-              <h1 class="fade-up">but better.</h1>
-              <p class="hero-sub fade-up">Swiss functionality meets magical interaction. Connecting human needs with business logic globally.</p>
-            </div>
-            
-            <div class="hero-profile">
-              <div class="img-wrapper">
-                <!-- This image will be parsed by WebGL and made transparent by CSS -->
-                <img src="/profile.jpg" alt="Profile" class="webgl-img" crossorigin="anonymous">
-              </div>
-            </div>
-          </div>
-        </section>
+  <!-- AWWWARDS CURSOR: Magnetic custom dot -->
+  <div id="magnetic-cursor"></div>
 
-        <!-- Timeline: Experiences -->
-        <section class="experience" id="experience">
-          <div class="section-grid">
-            <h2 class="section-title fade-up">01. Experience</h2>
-            <div class="timeline-container">
-              
-              <div class="timeline-item fade-up">
-                <div class="time-meta">
-                  <span class="dates">Dez 2023 — Presente</span>
-                  <h3 class="company">SulAmérica</h3>
-                </div>
-                <div class="time-content">
-                  <h4>Staff Product Designer & DesignOps</h4>
-                  <p>Inovação, governança de design, gestão da experiência e escalabilidade de processos para serviços digitais massivos. Atuando diretamente no core estratégico de produtos de saúde e seguros.</p>
-                </div>
-              </div>
+  <!-- WEBGL ENGINE BACKGROUND -->
+  <canvas id="webgl-canvas"></canvas>
 
-              <div class="timeline-item fade-up">
-                <div class="time-meta">
-                  <span class="dates">Jan 2022 — Jun 2023</span>
-                  <h3 class="company">PicPay</h3>
-                </div>
-                <div class="time-content">
-                  <h4>DesignOps & Design Manager</h4>
-                  <p>Gestão de Design Center: Produto e Pessoas. Coordenação com foco em Design System e AccessibilityOps. Fomento da cultura em parceria colaborativa com Content Design e UX Research para potencializar as jornadas do marketplace financeiro.</p>
-                </div>
-              </div>
+  <!-- BACKGROUND VIDEO THAT STAYS FIXED -->
+  <div id="hero-media-fixed">
+    <video id="hero-video" src="/hero-video.mp4" muted playsinline></video>
+    <div class="media-overlay"></div>
+  </div>
 
-            </div>
-          </div>
-        </section>
+  <div class="glow-pocket top-left"></div>
+  <div class="glow-pocket mid-right"></div>
+  <div class="glow-pocket bot-center"></div>
 
-        <!-- Gallery: Pinterest Cases -->
-        <section class="gallery" id="work">
-          <div class="section-grid">
-            <h2 class="section-title fade-up">02. Selected Work</h2>
-          </div>
-          <div class="gallery-grid">
-            
-            <div class="gallery-item fade-up">
-              <div class="img-wrapper landscape">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" alt="Data Dashboard" class="webgl-img" crossorigin="anonymous">
-              </div>
-              <div class="gallery-info">
-                <h3>Scalable Data Visualization</h3>
-                <span>Dark Mode Dashboards / UI Components</span>
-              </div>
-            </div>
-
-            <div class="gallery-item fade-up offset-right">
-              <div class="img-wrapper portrait">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" alt="Fintech UX" class="webgl-img" crossorigin="anonymous">
-              </div>
-              <div class="gallery-info">
-                <h3>Banking App Environments</h3>
-                <span>Fintech UX / Interactions</span>
-              </div>
-            </div>
-
-            <div class="gallery-item fade-up offset-left">
-              <div class="img-wrapper square">
-                <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&q=80&w=1000" alt="Design System" class="webgl-img" crossorigin="anonymous">
-              </div>
-              <div class="gallery-info">
-                <h3>Core Design System Factory</h3>
-                <span>DesignOps / Accessibility</span>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-          <div class="footer-wrap">
-            <h2 class="fade-up">Will.</h2>
-            <div class="footer-bottom">
-              <span>Staff Product Designer. São Paulo, BR</span>
-              <a href="https://br.pinterest.com/willmatos/portfolio/" target="_blank">Pinterest Archive</a>
-            </div>
-          </div>
-        </footer>
-
+  <!-- Top Bar -->
+  <header class="os-header blend-layer">
+    <div class="os-brand magnetic" data-magnetic>WM<span class="blink">_</span></div>
+    <div class="os-controls">
+      <button id="theme-toggle" class="magnetic" data-magnetic>SYS.LIGHT()</button>
+      <div class="os-status magnetic" data-magnetic>
+        <span class="pulse sys-alive"></span> OPS_ONLINE
       </div>
     </div>
-    
-    <script type="module" src="./main.js"></script>
-  </body>
+  </header>
+
+  <!-- Locomotive / Lenis Wrapper -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- ==============================
+           CHAPTER 1: HERO BOOT 
+      =============================== -->
+      <section class="mega-hero" id="hero">
+        <div class="mega-hero-content">
+          <h1 class="split-text">Design<br>Infrastructure<br><span class="accent-text">That Builds Itself.</span></h1>
+          <p class="fade-up-item">Autonomous DesignOps, scalable product architecture, and enterprise governance at Staff level.</p>
+          
+          <div class="hero-chips fade-up-item delay-1">
+            <span class="chip magnetic" data-magnetic>DESIGN SYSTEMS</span>
+            <span class="chip magnetic" data-magnetic>WCAG 2.2 pt-BR</span>
+            <span class="chip magnetic" data-magnetic>SÃO PAULO_BR</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================
+           CHAPTER 2: UNICORN PROTOCOL (TESTIMONIAL) 
+      =============================== -->
+      <section class="chapter-sect layout-transparent" id="testimonial">
+        <div class="container-grid">
+          <div class="sect-subtitle">
+            <h4 class="mono-label">>> PEER_EVALUATION</h4>
+          </div>
+          <div class="sect-main">
+            <h2 class="massive-quote split-text">"William é uma espécie de unicórnio em meio aos outros designers. Ele entende o processo do início ao fim e é a persona que muda todo o jogo de uma empresa."</h2>
+            <div class="quote-author fade-up-item">
+              <strong>Eric Cerqueira</strong><br>
+              <span class="sub-text">Design @ Tako / Praxio Colleague</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================
+           CHAPTER 3: KINETIC SKILLS MARQUEE 
+      =============================== -->
+      <section class="chapter-sect no-pad marquee-container">
+        <div class="kinetic-text-track" id="skill-track">
+          <div class="kinetic-text"> 
+            UX Strategy — Acessibilidade Digital — DesignOps — System Governance — Liderança Ágil — Design System Architecture — 
+          </div>
+          <div class="kinetic-text"> 
+            UX Strategy — Acessibilidade Digital — DesignOps — System Governance — Liderança Ágil — Design System Architecture — 
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================
+           CHAPTER 4: TIMELINE (WebGL Synced) 
+      =============================== -->
+      <section class="chapter-sect layout-transparent webgl-sync" id="experience">
+        <div class="container-grid">
+          <div class="sect-subtitle sticky-col">
+            <h4 class="mono-label">>> DEPLOYMENT_HISTORY</h4>
+            <p class="descriptor">Scaling teams and component architecture across Fintechs and Healthtechs.</p>
+          </div>
+          
+          <div class="sect-main timeline-vertical">
+            
+            <article class="timeline-block parallax-node">
+              <div class="time-marker">2023_PRESENT</div>
+              <div class="content-box">
+                <h3 class="org">SulAmérica</h3>
+                <h5 class="role">Staff Product Designer & DesignOps</h5>
+                <p>Escalonamento massivo de times organizacionais. Liderança na estruturação de padrões operacionais e Governança atuando lado a lado com times de UX Research, Content Design e ProductOps.</p>
+              </div>
+            </article>
+
+            <article class="timeline-block parallax-node offset-right">
+              <div class="time-marker">2022_2023</div>
+              <div class="content-box">
+                <h3 class="org">PicPay</h3>
+                <h5 class="role">Design Manager | DesignOps</h5>
+                <p>Gestão de processos corporativos, garantindo maturidade de design. Coordenação profunda de ritos como Design Critiques e trilha de carreira, criando eficiência cross-functional no ecossistema Mobile.</p>
+              </div>
+            </article>
+
+            <article class="timeline-block parallax-node">
+              <div class="time-marker">2020_2022</div>
+              <div class="content-box">
+                <h3 class="org">PicPay</h3>
+                <h5 class="role">Design System & Ops Specialist</h5>
+                <p>Criação técnica da documentação do Design System via ZeroHeight/Figma Organizations. Autoria dos guias de UX Research, Hand-off e condução intensiva do ciclo de Redesign focado em percepção emocional.</p>
+              </div>
+            </article>
+
+            <article class="timeline-block parallax-node offset-right">
+              <div class="time-marker">2016_2019</div>
+              <div class="content-box">
+                <h3 class="org">Praxio Tecnologia</h3>
+                <h5 class="role">Product Designer | Lead Chapter</h5>
+                <p>Transportation Tech. Condução ponta-a-ponta utilizando Lean UX, Dual Track Sprints e testes B2B. Aprofundamento sólido nas métricas fundacionais de produtos corporativos.</p>
+              </div>
+            </article>
+
+            <article class="timeline-block parallax-node">
+              <div class="time-marker">2010_2016</div>
+              <div class="content-box">
+                <h3 class="org">Formações Iniciais</h3>
+                <h5 class="role">Design Manager (ComuniClick) / Art Director</h5>
+                <p>Construída a base em Publicidade e Propaganda (USJT, 09-12). Liderança visual atuando como diretor criativo em e-commerce, Google Analytics e Front-end.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================
+           CHAPTER 5: ACTIVISM POSTER
+      =============================== -->
+      <section class="chapter-sect layout-poster" id="a11y">
+        <div class="poster-card" data-parallax="0.2">
+          <div class="poster-header">
+            <span class="mono-label alert-color">>> GLOBAL_MILESTONE</span>
+            <h2>W3C WCAG 2.2</h2>
+          </div>
+          <div class="poster-body">
+            <p>Atuação crucial com <strong>Acessibilidade Digital no Brasil</strong> como Empreendedor Social no Instituto Equidade Plural (INSEP). Co-autor da tradução oficial do WCAG 2.2 para a língua portuguesa, estabelecendo o nível máximo de inclusão digital.</p>
+            <a href="#" class="massive-btn magnetic" data-magnetic>ACOMPANHAR PAUTAS</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================
+           CHAPTER 6: PUBLICATIONS (ISOMETRIC)
+      =============================== -->
+      <section class="chapter-sect layout-dark" id="publications">
+        <div class="container-grid">
+          <div class="sect-subtitle">
+            <h4 class="mono-label">>> EXTRACTED_ARTICLES</h4>
+          </div>
+          <div class="sect-main">
+            <div class="article-grid">
+              
+              <a href="https://medium.com" target="_blank" class="article-card magnetic-tilt">
+                <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="UI Colors"></div>
+                <h4>UI Colors aplicadas ao nosso sistema de design.</h4>
+                <p class="meta">Medium • 1 de Mar de 2018</p>
+              </a>
+
+              <a href="https://medium.com" target="_blank" class="article-card magnetic-tilt">
+                <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" alt="UX Siglas"></div>
+                <h4>Está cansado de ouvir falar de UX? Temp UI, UX, CX e BX!</h4>
+                <p class="meta">Medium • Insight</p>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================
+           CHAPTER 7: NEURAL INTERFACE
+      =============================== -->
+      <section class="chapter-sect layout-dark" id="neural-interface">
+        <div class="container-grid">
+          <div class="sect-subtitle sticky-col">
+            <h4 class="mono-label">>> NEURAL_INTERFACE</h4>
+            <p class="descriptor">Converse diretamente com Will — instância AI treinada no perfil.</p>
+          </div>
+          <div class="sect-main neural-main">
+
+            <!-- Holographic 3D Head -->
+            <div class="holographic-stage fade-up-item">
+              <canvas id="holo-canvas"></canvas>
+              <div class="holo-scanlines"></div>
+              <div class="holo-border"></div>
+              <span class="holo-corner holo-corner-tl mono-label">WILL.EXE</span>
+              <span class="holo-corner holo-corner-tr mono-label">SYS_ONLINE</span>
+              <span class="holo-corner holo-corner-bl mono-label">HEAD_3D//</span>
+              <span class="holo-corner holo-corner-br mono-label">NEURAL_V1</span>
+            </div>
+
+            <!-- Chat Terminal -->
+            <div class="chat-terminal fade-up-item">
+              <div class="chat-header">
+                <span class="pulse sys-alive"></span>
+                <span class="mono-label">DIRECT_LINE // WILL MATOS</span>
+              </div>
+              <div class="chat-messages" id="chat-messages" data-lenis-prevent>
+                <div class="chat-msg assistant-msg">
+                  <span class="mono-label msg-label">WILL.SYS</span>
+                  <p>Olá. Sou Will — Staff Designer, arquiteto de DesignOps e ativista de acessibilidade. O que você quer saber?</p>
+                </div>
+              </div>
+              <form class="chat-input-row" id="chat-form">
+                <input
+                  type="text"
+                  id="chat-input"
+                  placeholder="Faça uma pergunta para Will..."
+                  autocomplete="off"
+                />
+                <button type="submit" class="magnetic" data-magnetic>SEND_()</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================
+           CHAPTER 8: SYSTEM SHUTDOWN
+      =============================== -->
+      <footer class="cyber-footer">
+        <div class="footer-huge-contact">
+          <h1 class="split-text magnetic" data-magnetic>INITIATE<br>CONTACT()</h1>
+        </div>
+        <div class="footer-nav">
+          <a href="https://br.pinterest.com/willmatos/portfolio/" class="hover-link magnetic" data-magnetic>PINTEREST_ARCHIVE</a>
+          <a href="https://www.linkedin.com/in/willmatos/" class="hover-link magnetic" data-magnetic>LINKEDIN_NODE</a>
+          <a href="#" class="hover-link magnetic" data-magnetic>WILL.MATOS@GMAIL</a>
+        </div>
+      </footer>
+
+    </div><!-- smooth-content -->
+  </div><!-- smooth-wrapper -->
+
+  <script type="module" src="./main.js"></script>
+</body>
 </html>
